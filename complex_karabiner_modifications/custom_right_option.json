@@ -1,0 +1,32 @@
+{
+  "title": "Change right_option to righht_option and play_or_pause",
+  "rules": [
+	{
+	  "description": "Post play_or_pause if right_option is tapped, right_option if held.",
+	  "manipulators": [
+        {
+    "type": "basic",
+    "from": {
+        "key_code": "right_option",
+        "modifiers": {
+            "optional": [
+                "any"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "right_option",
+            "lazy": true
+        }
+    ],
+    "to_if_alone": [
+        {
+            "key_code": "play_or_pause"
+        }
+    ]
+}
+	  ]
+	}
+  ]
+}

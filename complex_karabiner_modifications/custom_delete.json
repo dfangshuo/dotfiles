@@ -1,0 +1,27 @@
+{
+  "title": "ctrl (caps lock) + q -> delete",
+  "rules": [
+    {
+      "description": "ctrl (caps lock) + q -> delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

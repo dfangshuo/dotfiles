@@ -1,0 +1,99 @@
+" Comments in Vimscript start with a `"`.
+
+" If you open this file in Vim, it'll be syntax highlighted for you.
+
+" Vim is based on Vi. Setting `nocompatible` switches from the default
+" Vi-compatibility mode and enables useful Vim functionality. This
+" configuration option turns out not to be necessary for the file named
+" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
+" is present. But we're including it here just in case this config file is
+" loaded some other way (e.g. saved as `foo`, and then Vim started with
+" `vim -u foo`).
+set nocompatible
+
+syntax on
+set noerrorbells
+set expandtab
+set smartindent
+set nowrap
+set noswapfile
+set incsearch
+
+set number
+set relativenumber
+set ruler
+set showcmd
+" This setting makes search case-insensitive when all characters in the string
+" being searched are lowercase. However, the search becomes case-sensitive if
+" it contains any capital letters. This makes searching more convenient.
+set ignorecase
+set smartcase
+
+" highlight search results
+set hlsearch
+
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
+nmap <S-Right> v<Right>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
+vmap <S-Right> <Right>
+imap <S-Up> <Esc>v<Up>
+imap <S-Down> <Esc>v<Down>
+imap <S-Left> <Esc>v<Left>
+imap <S-Right> <Esc>v<Right>
+
+" ===========================================================
+" ===========================================================
+
+" Functions
+
+function! CopyImportStatement()
+  let filename = @%
+  let pieces = split(filename, "/")
+  let module = substitute(pieces[-1], ".py", "", "g")
+  let path = join(pieces[2:-2], ".")
+  let @+ = "from " . path . " import " . module
+endfunction
+
+function! CopyPhabLink()
+  let lineNumber = line(".")
+  let filename = @%
+  let root = "https://abnormal.phacility.com/diffusion/1/browse/master/"
+  let @+ = root . filename . "$" . lineNumber
+endfunction
+
+function! PytestCommand()
+  let filename = @%
+  let pieces = split(filename, "/")
+  let relativeName = join(pieces[2:-1], "/")
+  echo relativeName
+  let @+ = "run_pytests --skip-airflow-db --nomigrations " . relativeName
+endfunction
+
+" ===========================================================
+" ===========================================================
+
+" Ctrl Key Shortcuts
+" map <C-e> :rightb :vert ter<CR>
+" map <C-t> :tabnew<CR>
+" map <Tab> :tabn<CR>
+" map <S-Tab> :tabp<CR>
+
+" Set Leader Key
+map <Space> <Leader>
+
+" Leader Key shortcuts
+" map <leader>j :rightb :vert ter<CR>
+" map <leader>t :tabnew<CR>
+" map <leader>n :tabn<CR>
+" map <leader>N :tabp<CR>
+map <leader>qq :q<CR>
+map <leader>s :w<CR>
+map <leader>ss :wq<CR>
+
+nnoremap <leader>i :call CopyImportStatement()<CR>
+nnoremap <leader>y :call CopyPhabLink()<CR>
+

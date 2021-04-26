@@ -1,0 +1,32 @@
+{
+  "title": "Change left_option to vol_up and left_option",
+  "rules": [
+	{
+	  "description": "Post volume_increment if left_option is tapped, left_control if held.",
+	  "manipulators": [
+        {
+    "type": "basic",
+    "from": {
+        "key_code": "left_option",
+        "modifiers": {
+            "optional": [
+                "any"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "left_option",
+            "lazy": true
+        }
+    ],
+    "to_if_alone": [
+        {
+            "key_code": "volume_increment"
+        }
+    ]
+}
+	  ]
+	}
+  ]
+}

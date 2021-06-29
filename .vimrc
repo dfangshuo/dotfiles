@@ -94,6 +94,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-utils/vim-man'
 " Plug 'git@github.com:kien/ctrlp.vim.git'
 " Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'git@github.com:tpope/vim-commentary.git'
 Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -180,11 +181,21 @@ map <leader>Qy :q!<CR>
 map <leader>s :w<CR>
 map <leader>fs :wq<CR>
 
+" Comment
+map <leader>/ gcc
+
+" Copy to clipboard
+map <leader>yc "*y
+
+" Copy all page and clear screen
+map <leader>ya gg<S-v>G"*d
+map <leader>yA gg<S-v>G"*d:q!<CR>
+
 " FZF
 nmap <leader>pp :FZF<CR>
 
 " map <leader>y "*y<CR>
 
 nnoremap <leader>i :call CopyImportStatement() <CR>:q<CR>
-nnoremap <leader>y :call CopyPhabLink()<CR>
+nnoremap <leader>yp :call CopyPhabLink()<CR>
 nnoremap <leader>I :call CopyImportModuleStatement()<CR>:q<CR>

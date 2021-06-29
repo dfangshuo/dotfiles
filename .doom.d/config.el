@@ -62,3 +62,37 @@
 (map! :leader :desc "Blacken Buffer" "m b b" #'python-black-buffer)
 (map! :leader :desc "Blacken Region" "m b r" #'python-black-region)
 (map! :leader :desc "Blacken Statement" "m b s" #'python-black-statement)
+
+;; enable clipboard copying
+(use-package simpleclip :ensure t
+  :config
+  (setq simpleclip-mode 1) )
+
+;; TODO(DFS): this throws some error if there's no region to copy
+(map! :leader :desc "Copy using to Clipboard (simpleclip)" "y c" #'simpleclip-copy)
+
+;; Autosave attempt
+(setq auto-save-visited-mode t)
+(setq auto-save-default t)
+
+;; Company Autocomplete
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
+
+;; Disable global flycheck mode
+(setq global-flycheck-mode 0)
+
+;; highlight-symbol
+;; Copied from https://xenodium.com/emacs-highlight-symbol-mode/
+(use-package highlight-symbol :ensure t
+  :config
+  (set-face-attribute 'highlight-symbol-face nil
+                      :background "#3A3A3A" ;; "default"
+                      :foreground "#FDB008") ;; "#FA009A"
+  (setq highlight-symbol-idle-delay 0)
+  (setq highlight-symbol-on-navigation-p t)
+  (add-hook 'prog-mode-hook #'highlight-symbol-mode)
+  (add-hook 'prog-mode-hook #'highlight-symbol-nav-mode) )
+
+;; Load additional packages
+(load! "+functions")

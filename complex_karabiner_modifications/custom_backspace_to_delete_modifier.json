@@ -1,15 +1,15 @@
 {
-  "title": "Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)",
+  "title": "Map Shift+Backspace-Delete to Fn+Backward-Delete (suppr current character)",
   "rules": [
     {
-      "description": "Map Ctrl+Backspace-Delete to Fn+Backward-Delete (suppr current character)",
+      "description": "Map Shift+Backspace-Delete to Fn+Backward-Delete (suppr current character)",
       "manipulators": [
         {
           "from": {
             "key_code": "delete_or_backspace",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
               ],
               "optional": [
                 "any"

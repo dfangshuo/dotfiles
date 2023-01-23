@@ -1,0 +1,30 @@
+{
+  "title": "Map Ctrl-5 to Cmd-Shift-Space-Tab",
+  "rules": [
+    {
+      "description": "Map Ctrl-5 to Cmd-Shift-Space-Tab",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

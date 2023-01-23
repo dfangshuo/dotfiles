@@ -25,7 +25,10 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-gruvbox
+      doom-gruvbox-dark-variant "soft"
+      doom-gruvbox-brighter-comments nil)
+;; (setq doom-theme 'doom-vibrant)
 ;; (setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -64,9 +67,9 @@
 (map! :leader :desc "Blacken Statement" "m b s" #'python-black-statement)
 
 ;; enable clipboard copying
-(use-package simpleclip :ensure t
-  :config
-  (setq simpleclip-mode 1) )
+;; (use-package simpleclip :ensure t
+;;   :config
+;;   (setq simpleclip-mode 1) )
 
 ;; TODO(DFS): this throws some error if there's no region to copy
 (map! :leader :desc "Copy using to Clipboard (simpleclip)" "y c" #'simpleclip-copy)
@@ -84,15 +87,15 @@
 
 ;; highlight-symbol
 ;; Copied from https://xenodium.com/emacs-highlight-symbol-mode/
-(use-package highlight-symbol :ensure t
-  :config
-  (set-face-attribute 'highlight-symbol-face nil
-                      :background "#3A3A3A" ;; "default"
-                      :foreground "#FDB008") ;; "#FA009A"
-  (setq highlight-symbol-idle-delay 0)
-  (setq highlight-symbol-on-navigation-p t)
-  (add-hook 'prog-mode-hook #'highlight-symbol-mode)
-  (add-hook 'prog-mode-hook #'highlight-symbol-nav-mode) )
+;; (use-package highlight-symbol :ensure t
+;;   :config
+;;   (set-face-attribute 'highlight-symbol-face nil
+;;                       :background "#3A3A3A" ;; "default"
+;;                       :foreground "#FDB008") ;; "#FA009A"
+;;   (setq highlight-symbol-idle-delay 0)
+;;   (setq highlight-symbol-on-navigation-p t)
+;;   (add-hook 'prog-mode-hook #'highlight-symbol-mode)
+;;   (add-hook 'prog-mode-hook #'highlight-symbol-nav-mode) )
 
 ;; Load additional packages
 (load! "+functions")

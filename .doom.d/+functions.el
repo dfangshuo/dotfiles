@@ -10,13 +10,15 @@
 
 (defun abx-browse-path-line ()
   (interactive)
-  (let ((file-name (concat "https://abnormal.phacility.com/diffusion/SRC/browse/master"
+  (let ((file-name (concat "https://abnormal.phacility.com/diffusion/SRC/browse/master/src/py"
                            (substring (buffer-file-name) 24 ) "$" (number-to-string (line-number-at-pos)))))
     (if file-name
         (progn
           (message file-name)
           (kill-new file-name))
       (error "Buffer not visiting a file"))))
+
+(map! :leader :desc "Get phacility path for current line" "y u" #'abx-browse-path-line)
 
 (defun copy-filepath-clipboard ()
   "Copy the current buffer file name to the clipboard."

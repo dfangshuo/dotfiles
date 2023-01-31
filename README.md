@@ -2,15 +2,20 @@
 
 *Not to be used for work work dependencies/installations*
 
-**.vimrc**
+## .vimrc
 - `ln -s ~/flib/.vimrc ~/`
 
-**.tmux.conf**
+## .tmux.conf
 - `ln -s ~/flib/.tmux.conf ~/`
 
-**.doom.d**
+## .doom.d
 - `ln -s ~/flib/.doom.d ~/`
 
-**karabiner-elements**
+## karabiner-elements
 - `ln -s ~/flib/complex_karabiner_modifications ~/.config/karabiner/assets`
-- `mv complex_karabiner_modifications complex_modifications`
+- `mv ~/.config/karabiner/assets/complex_karabiner_modifications ~/.config/karabiner/assets/complex_modifications`
+
+**UI Modifications**
+- caps_lock -> left_control
+- escape -> return_or_enter
+- left_control -> play_or_pause

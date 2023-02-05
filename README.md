@@ -19,3 +19,11 @@
 - caps_lock -> left_control
 - escape -> return_or_enter
 - left_control -> play_or_pause
+
+## Shell
+- https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+- https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+- https://github.com/junegunn/fzf#using-homebrew
+
+## Scripts
+- ln -s ~/flib/scripts ~/scripts

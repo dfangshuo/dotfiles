@@ -24,6 +24,7 @@
 - https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 - https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 - https://github.com/junegunn/fzf#using-homebrew
+- `git clone https://github.com/powerline/fonts.git --depth=1`
 
 ## Scripts
 - ln -s ~/flib/scripts ~/scripts

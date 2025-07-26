@@ -1,0 +1,32 @@
+{
+  "title": "Change spacebar to Space and Cmd",
+  "rules": [
+	{
+	  "description": "Post Space if Spacebar is tapped, Cmd if held.",
+	  "manipulators": [
+        {
+    "type": "basic",
+    "from": {
+        "key_code": "spacebar",
+        "modifiers": {
+            "optional": [
+                "any"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "left_command",
+            "lazy": true
+        }
+    ],
+    "to_if_alone": [
+        {
+            "key_code": "spacebar"
+        }
+    ]
+}
+	  ]
+	}
+  ]
+}

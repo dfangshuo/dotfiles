@@ -99,33 +99,7 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 set autoindent
 filetype plugin indent on
 
-" Attempt at autoloading the matchit plugin
-" runtime macros/matchit.vim
-
-" https://github.com/junegunn/vim-plug
-" call plug#begin('~/.vim/plugged')
-" 
-" Plug 'morhetz/gruvbox'
-" Plug 'vim-utils/vim-man'
-" " Plug 'git@github.com:kien/ctrlp.vim.git'
-" " Plug 'git@github.com:Valloric/YouCompleteMe.git'
-" Plug 'git@github.com:tpope/vim-commentary.git'
-" Plug 'mbbill/undotree'
-" Plug 'vim-airline/vim-airline'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-" " Plug 'tmhedberg/matchit'
-" Plug 'andymass/vim-matchup'
-" Plug 'tpope/vim-surround'
-" 
-" 
-" call plug#end()
-
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-
-" colorscheme gruvbox
-" set background=dark
 
 let g:ctrlp_use_caching=0
 let g:netrw_winsize=25

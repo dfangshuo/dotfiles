@@ -2,11 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR=vim
 # Path to your oh-my-zsh installation.
+# TODO: depending on your user name, this might have to be changed
 export ZSH="/Users/dfs/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
-
-# SPACESHIP_PROMPT_ORDER=(user host dir git node exec_time line_sep jobs exit_code char)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,6 +73,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration #
 ######################
 
+# SPACESHIP_PROMPT_ASYNC=false # https://github.com/spaceship-prompt/spaceship-prompt/issues/1207
+SPACESHIP_KUBECTL_SHOW=true
+# SPACESHIP_VI_MODE_SHOW=true
+# SPACESHIP_PROMPT_ORDER=(user host dir git node exec_time line_sep jobs exit_code char)
+
 # zsh vim mode
 # source "/Users/dfs/.oh-my-zsh/custom/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
@@ -132,75 +136,24 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-### UNCOMMENT BELOW FOR CONDA ###
+export SOURCE=/Users/dfs/source # TODO
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-#  __conda_setup="$('/Users/dfs/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#  if [ $? -eq 0 ]; then
-#      eval "$__conda_setup"
-#  else
-#      if [ -f "/Users/dfs/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#          . "/Users/dfs/opt/anaconda3/etc/profile.d/conda.sh"
-#      else
-#          export PATH="/Users/dfs/opt/anaconda3/bin:$PATH"
-#      fi
-#  fi
-#  unset __conda_setup
-#  # <<< conda initialize <<<
- 
-# conda activate abnormal
 
-# export PYSPARK_PYTHON="$(conda activate abnormal; which python3)" # python
-export PYSPARK_PYTHON=python
-
-# Init jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
-# arcanist/phabricator
-# export PATH="/Users/dfs/installs/arcanist/bin:$PATH"
-
-export SOURCE=/Users/dfs/source
-. $SOURCE/tools/dev/common_bash_includes
-
-# venv
-export VENV="$SOURCE/.venv"
-venv-activate
-
-SPARK_HOME='/Users/dfs/installs/spark-3.1.2-bin-hadoop2.7' # '/Users/dfs/installs/spark-2.3.0-bin-hadoop2.7'
-export PATH=$SPARK_HOME/bin:$PATH
-export JAVA_HOME="$(readlink "$(jenv prefix)")"
-
-# bidet
-# export PYTHONPATH=$PYTHONPATH:$HOME/.bidet/python_content_root
-
-# dbt setup
-export DBT_HOME=~/dbt
-export DATABRICKS_CLUSTER_ID=0810-212339-wagon371 # eng-dev-cluster
-
-# My ALIASES
-# alias python=python3
-
-alias b=black
+# alias b=black
 alias c=clear
 alias g=git
-alias p=python
-alias pi=python -i
-alias r='run_pytests --skip-airflow-db'
+#alias p=python # TODO
+alias k=kubectl
+
+# alias pi=python -i
 
 alias cs='cd ~/source'
 alias gr='g log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
-alias ciao=exit
-alias \ \ ='emacs'
 
 alias gs='g status'
 alias ga='g add'
-alias gbr='g branch --sort=-committerdate'
 alias gl='g pull'
 alias gf='g fetch'
-# alias goto='g checkout'
-# alias goton='goto -b'
-# alias gcm='goto main'
 alias gml='gcm && gl'
 alias glom='gl origin main'
 alias gcm='g checkout main'
@@ -209,84 +162,59 @@ alias gau='ga -u'
 alias gxb='g branch -D'
 alias grm='g rebase main'
 alias gco='g commit -m '
+alias gcT='gco "TMP"'
 alias gm='g branch -m '
 
-alias unstage='git restore --staged'
-alias s='ssh'
-alias sd='s deploy'
-alias sp='s prometheus'
+alias v=vim
 
 alias gsh='g show HEAD'
 alias gtemp="ga -A && gco 'TEMP'"
+alias gto='gh pr checkout'
+alias sf='sso-refresh'
+alias jj='databricks auth login -p DEFAULT'
 
-# gh aliases
 alias ad='gh pr create -w'
-# alias ad='gh pr create --fill --reviewer john-rak,cdgasperi,justinyoung127,hrl20,micahjz'
-alias arcland='gh pr merge --delete-branch --squash && gml'
-
-alias dsync_fang_dev='databricks_rsync --cluster_id=0908-215113-gages415'
-alias dsync_fang_covid_breakfast='databricks_rsync --cluster_id=0217-021603-omakl0cg'
-alias dsync_fang_basketball_dropout_wagyu_otw='databricks_rsync --cluster_id=0428-014503-j0kiirsb'
-alias dsync_fang_the_feeling_erose_salt_mum_clothes='databricks_rsync --cluster_id=1113-130904-v48hwir8'
-
-# alias put_fang_dev='python src/py/abnormal/deploy/databricks_tool.py upload_source_wheel -d fdeng -w aws_useast1'
+# alias arcland='gh pr merge --delete-branch --squash && gml'
 
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias zshh='vim ~/.zsh_history'
 
-alias cN='cd ~/notebooks'
 alias cD='cd ~/Downloads'
-# alias deploy_databricks='python src/py/abnormal/airflow/tools/airflow_tool.py deploy_to_databricks -w aws_useast1'
-
-alias snotebook='cN && export PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' && pyspark && cs'
-
-alias asl='aws sso login'
-
-## Deprecated arc commands
-# alias ad='arc lint && arc diff'
-# alias al='arc land'
 
 # IntelliJ Integrated Terminal
 # bindkey "\e\eOD" backward-word
 # bindkey "\e\eOC" forward-word
 
-export ABNORMAL_USER=fdeng
-export AWS_PROFILE=absec-mgmt
-
-# Enable vi mode
-# bindkey -v
-# plugins=(
-#   vi-mode
-# )
-
 # source /Users/dfs/flib/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-
 ##### emacs
-# export PATH="$PATH:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
 
-# My Scripts
+######################
+# Scripts
+######################
 
 # hola() {
 #   local msg=${1:-'Done!'} title=${2:-'Long-running shell command'} sound=${3:-'Hero'}
 #   osascript -e 'display notification "'"$msg"'" with title "'"$title"'" sound name "'"$sound"'"' -e 'activate application "iTerm2"'
 # }
 
-# alias dup="python $SOURCE/src/py/abnormal/fangs_notebooks/utils.py import_notebook -n"
-# alias ddown="python $SOURCE/src/py/abnormal/fangs_notebooks/utils.py export_notebook -n"
-
 # Script to read a folder containing both normal log files + gzipped log files
 # expects the files to be in a folder named by a single integer e.g. 0
 source ~/scripts/read_log.sh
 
-# parses regular databricks output to copy the url
 source ~/scripts/cp_databricks_url.sh
 
+source ~/scripts/k8s_scripts.sh
 # Quality-Of-Life scripts for Git
 source ~/scripts/git_scripts.sh
-
+source ~/scripts/entitle_scripts.sh
 source ~/scripts/misc_scripts.sh
+source ~/.secrets
 
-# Start the shell in the $SOURCE directory
-cs
+# Abnormal-specific 
+source ~/scripts/abnormal_scripts.sh
+
+# This is run at the very end bc there are some functions that "mutates state"
+source ~/flib/.zshrc_abnormal

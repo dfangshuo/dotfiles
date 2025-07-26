@@ -66,3 +66,5 @@ function goto_cursor_line() {
   # Assume 'cursor' command exists and call it
   cursor -g "$target_path"
 }
+
+alias o=goto_cursor_line

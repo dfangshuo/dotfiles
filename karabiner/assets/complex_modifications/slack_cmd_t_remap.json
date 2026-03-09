@@ -1,0 +1,32 @@
+{
+  "title": "Slack: Cmd+T → Cmd+Shift+T",
+  "rules": [
+    {
+      "description": "In Slack, remap Cmd+T to Cmd+Shift+T",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

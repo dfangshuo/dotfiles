@@ -518,6 +518,10 @@
                 {
                     "from": { "key_code": "left_control" },
                     "to": [{ "consumer_key_code": "play_or_pause" }]
+                },
+                {
+                    "from": { "key_code": "right_command" },
+                    "to": [{ "key_code": "delete_or_backspace" }]
                 }
             ],
             "virtual_hid_keyboard": {

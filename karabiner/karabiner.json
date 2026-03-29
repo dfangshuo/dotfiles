@@ -4,13 +4,13 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Option+Tab → Ctrl+Option+Right, Option+Shift+Tab → Ctrl+Option+Left",
+                        "description": "Option+Tab → Ctrl+Option+Right, Option+` → Ctrl+Option+Left",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "tab",
+                                    "key_code": "grave_accent_and_tilde",
                                     "modifiers": {
-                                        "mandatory": ["option", "shift"],
+                                        "mandatory": ["option"],
                                         "optional": ["caps_lock"]
                                     }
                                 },

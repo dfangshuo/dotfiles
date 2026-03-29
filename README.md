@@ -14,9 +14,10 @@
 ## karabiner-elements
 
 **IMPORTANT:** Symlink the whole `~/.config/karabiner` directory, not individual
-files. If you symlink only `karabiner.json`, Karabiner will occasionally replace
-the symlink with a fresh blank config on boot (e.g. if it starts before the
-symlink target is resolvable) and you'll lose your bindings until you re-link.
+files. Karabiner does atomic writes (write to temp file → rename over
+`karabiner.json`), so a file-level symlink gets replaced with a real file on
+the first config save. A directory-level symlink survives because the rename
+happens *inside* it.
 
 ### Fresh install
 ```bash
@@ -35,7 +36,7 @@ in `~/flib/karabiner/`. Fix:
 ```bash
 rm -rf ~/.config/karabiner
 ln -s ~/flib/karabiner ~/.config/karabiner
-launchctl kickstart -k "gui/$(id -u)/org.pqrs.karabiner.karabiner_console_user_server"
+launchctl kickstart -k "gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server"
 ```
 
 ### Directory layout inside flib
